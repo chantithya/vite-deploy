@@ -2,54 +2,54 @@ import React, { useEffect, useState } from "react";
 import "./InstagramFeed.css";
 
 interface InstagramMedia {
-  id: number;
+  id: string;
   media_url: string;
   caption?: string;
 }
 
 const mockPosts: InstagramMedia[] = [
   {
-    id: 1,
+    id: "1",
     media_url: "https://via.placeholder.com/300",
     caption: "Post 1 caption",
   },
   {
-    id: 2,
+    id: "2",
     media_url: "https://via.placeholder.com/300",
     caption: "Post 2 caption",
   },
   {
-    id: 3,
+    id: "3",
     media_url: "https://via.placeholder.com/300",
     caption: "Post 3 caption",
   },
   {
-    id: 4,
+    id: "4",
     media_url: "https://via.placeholder.com/300",
     caption: "Post 4 caption",
   },
   {
-    id: 5,
+    id: "5",
     media_url: "https://via.placeholder.com/300",
     caption: "Post 5 caption",
   },
   {
-    id: 6,
+    id: "6",
     media_url: "https://via.placeholder.com/300",
     caption: "Post 6 caption",
   },
   {
-    id: 7,
+    id: "7",
     media_url: "https://via.placeholder.com/300",
     caption: "Post 7 caption",
   },
   {
-    id: 8,
+    id: "8",
     media_url: "https://via.placeholder.com/300",
     caption: "Post 8 caption",
   },
   {
-    id: 9,
+    id: "9",
     media_url: "https://via.placeholder.com/300",
     caption: "Post 9 caption",
   },
@@ -58,24 +58,30 @@ const mockPosts: InstagramMedia[] = [
 const InstagramFeed: React.FC = () => {
   const [media, setMedia] = useState<InstagramMedia[]>(mockPosts); // Start with mock data
   const domainUrl = "https://graph.instagram.com/me/media?";
-  const fields = "fields=media_url,caption"; // Added caption
-  const accessToken = "token";
+  const fields = "fields=media_url,caption";
+  const accessToken =
+    "IGQWRNRnZAWVTljVlhSYzVnTlEtcVI3T2MxcU9zLVVLWHBHSVJkU1hnX3N5MVQzV1RKWVpfcHdla3lmekxfYV91d1NjMERGbkVWM2tFWC15ZA0lId096SzE5aEV2em5obWt0U0x0ZAmNYdkljQnlxd0xhWHEtMEJ0WG8ZD";
 
   useEffect(() => {
     const fetchInstagramData = async () => {
-      if (accessToken === "token") {
-        // Use mock data
-        setMedia(mockPosts);
-      } else {
-        try {
-          const response = await fetch(
-            `${domainUrl}${fields}&access_token=${accessToken}`
-          );
-          const data = await response.json();
-          setMedia(data.data);
-        } catch (error) {
-          console.error("Error fetching Instagram data:", error);
+      try {
+        const requestUrl = `${domainUrl}${fields}&access_token=${accessToken}`;
+        const response = await fetch(requestUrl);
+
+        if (!response.ok) {
+          if (response.status === 400) {
+            setMedia(mockPosts);
+            return; // Exit early if there's a bad request
+          }
+          // Optionally, handle other statuses if needed
+          return;
         }
+
+        const data = await response.json();
+        setMedia(data.data);
+      } catch {
+        // Handle any other errors by using mock data without logging
+        setMedia(mockPosts);
       }
     };
 
