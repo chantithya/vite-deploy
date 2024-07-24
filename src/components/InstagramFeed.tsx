@@ -60,7 +60,6 @@ const InstagramFeed: React.FC = () => {
   const domainUrl = "https://graph.instagram.com/me/media?";
   const fields = "fields=media_url,caption"; // Added caption
   const accessToken = "token";
-  // const accessToken = "IGQWRQV2Q1d3lKbjU0b0VUOE1Xal9IX1BqZAXliZAzJ0RzdkcTgxeHFCUlQzOTBCbjZAsWHhkcms3UzBlNldwblJPdkV6Q1F1eGU1bWpzQ0x5dFZAfay1KRWliNFRQMnVOR0xid1MyMU44NXphcG0xdlZAhcDBTUjhJbzgZD"; // Replace with your actual access token
 
   useEffect(() => {
     const fetchInstagramData = async () => {
