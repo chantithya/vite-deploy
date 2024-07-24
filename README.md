@@ -132,7 +132,7 @@ export default InstagramFeed;
 
 5. Update src/App.tsx:
 
-```json
+```js
 import Header from "./components/Header";
 import InstagramFeed from "./components/InstagramFeed";
 import Footer from "./components/Footer";
@@ -152,7 +152,6 @@ function App() {
 }
 
 export default App;
-
 ```
 
 6. Update src/main.tsx:
