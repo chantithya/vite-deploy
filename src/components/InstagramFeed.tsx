@@ -59,24 +59,29 @@ const InstagramFeed: React.FC = () => {
   const [media, setMedia] = useState<InstagramMedia[]>(mockPosts); // Start with mock data
   const domainUrl = "https://graph.instagram.com/me/media?";
   const fields = "fields=media_url,caption"; // Added caption
-  const accessToken =
-    "IGQWRQV2Q1d3lKbjU0b0VUOE1Xal9IX1BqZAXliZAzJ0RzdkcTgxeHFCUlQzOTBCbjZAsWHhkcms3UzBlNldwblJPdkV6Q1F1eGU1bWpzQ0x5dFZAfay1KRWliNFRQMnVOR0xid1MyMU44NXphcG0xdlZAhcDBTUjhJbzgZD"; // Replace with your actual access token
+  const accessToken = "token";
+  // const accessToken = "IGQWRQV2Q1d3lKbjU0b0VUOE1Xal9IX1BqZAXliZAzJ0RzdkcTgxeHFCUlQzOTBCbjZAsWHhkcms3UzBlNldwblJPdkV6Q1F1eGU1bWpzQ0x5dFZAfay1KRWliNFRQMnVOR0xid1MyMU44NXphcG0xdlZAhcDBTUjhJbzgZD"; // Replace with your actual access token
 
   useEffect(() => {
     const fetchInstagramData = async () => {
-      try {
-        const response = await fetch(
-          `${domainUrl}${fields}&access_token=${accessToken}`
-        );
-        const data = await response.json();
-        setMedia(data.data);
-      } catch (error) {
-        console.error("Error fetching Instagram data:", error);
+      if (accessToken === "token") {
+        // Use mock data
+        setMedia(mockPosts);
+      } else {
+        try {
+          const response = await fetch(
+            `${domainUrl}${fields}&access_token=${accessToken}`
+          );
+          const data = await response.json();
+          setMedia(data.data);
+        } catch (error) {
+          console.error("Error fetching Instagram data:", error);
+        }
       }
     };
 
     fetchInstagramData();
-  }, []);
+  }, [accessToken]);
 
   return (
     <div className="instagram-feed row">
@@ -90,7 +95,7 @@ const InstagramFeed: React.FC = () => {
             />
             {post.caption && (
               <div className="card-body">
-                {/* <p className="card-text">{post.caption}</p> */}
+                <p className="card-text">{post.caption}</p>
               </div>
             )}
           </div>
