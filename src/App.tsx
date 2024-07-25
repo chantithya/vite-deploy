@@ -1,18 +1,23 @@
-import Header from "./components/Header";
+import React from "react";
+import { Routes, Route } from "react-router-dom";
 import InstagramFeed from "./components/InstagramFeed";
+import InstagramNewFeed from "./components/InstagramNewFeed";
+import Header from "./components/Header";
 import Footer from "./components/Footer";
 import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
-    <div className="App d-flex flex-column min-vh-100">
+    <>
       <Header />
       <main className="container my-5">
-        <InstagramFeed />
+        <Routes>
+          <Route path="/" element={<InstagramFeed />} />
+          <Route path="/new-feed/:id" element={<InstagramNewFeed />} />
+        </Routes>
       </main>
       <Footer />
-    </div>
+    </>
   );
 }
 

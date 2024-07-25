@@ -1,0 +1,24 @@
+.instagram-new-feed {
+    margin-top: 2rem;
+  }
+  
+  .instagram-new-feed .img-fluid {
+    border-radius: 10px;
+  }
+  
+  .instagram-new-feed .caption-box {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+  }
+  
+  .instagram-new-feed .caption-title {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+    color: #343a40;
+  }
+  
+  .instagram-new-feed .caption-text {
+    font-size: 1.2rem;
+    color: #6c757d;
+  }
+  
