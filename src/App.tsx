@@ -1,3 +1,4 @@
+// App.tsx
 import { Routes, Route } from "react-router-dom";
 import InstagramFeed from "./components/InstagramFeed";
 import InstagramNewFeed from "./components/InstagramNewFeed";
@@ -7,7 +8,7 @@ import "./App.css";
 
 function App() {
   return (
-    <>
+    <div className="App">
       <Header />
       <main className="container my-5">
         <Routes>
@@ -16,7 +17,7 @@ function App() {
         </Routes>
       </main>
       <Footer />
-    </>
+    </div>
   );
 }
 

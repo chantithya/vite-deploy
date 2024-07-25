@@ -1,14 +1,31 @@
-.instagram-feed .card {
-    transition: transform 0.3s;
-  }
-  
-  .instagram-feed .card:hover {
-    transform: scale(1.05);
-  }
-  
-  .card-img-top {
-    height: 200px;
-    object-fit: cover;
-  }
-  
-  
+.card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ddd;
+  border-radius: 0.25rem;
+  background-color: #fff;
+  margin: 10px;
+  height: 100%; /* Ensure the card takes the full height */
+}
+
+.card-img-top {
+  width: 100%;
+  border-bottom: 1px solid #ddd;
+}
+
+.card-footer {
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-top: 1px solid #ddd;
+  text-align: center;
+  margin-top: auto; /* Pushes the footer to the bottom */
+}
+
+.card-text {
+  font-size: 1rem;
+  color: #333;
+}
+
+.shadow-sm {
+  box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
+}

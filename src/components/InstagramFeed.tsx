@@ -58,7 +58,8 @@ const mockPosts: InstagramMedia[] = [
 ];
 
 // Replace this with your actual Instagram access token for testing
-const ACCESS_TOKEN = "test";
+const ACCESS_TOKEN =
+  "IGQWROMVQ3UkdDOHRYTTQyeWVPRkpjVWxIM1Q4OGFSUF9qYzVlUEx4MWNjZA0NzbGwxa3ZASUEVlN0IybmJnWFlQVk96bi13bmVWOTR3ZAXo5aWRaSXFpSkF4ZAmdsN2REZAlNrMGNqcWltT1FGNUM0LXhzT0hIVEFZAMmcZD";
 
 const InstagramFeed: React.FC = () => {
   const [media, setMedia] = useState<InstagramMedia[]>(mockPosts);

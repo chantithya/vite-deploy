@@ -20,7 +20,8 @@ const InstagramNewFeed: React.FC = () => {
 
   useEffect(() => {
     const fetchPostData = async () => {
-      const accessToken = "test"; // Hardcoded for testing
+      const accessToken =
+        "IGQWROMVQ3UkdDOHRYTTQyeWVPRkpjVWxIM1Q4OGFSUF9qYzVlUEx4MWNjZA0NzbGwxa3ZASUEVlN0IybmJnWFlQVk96bi13bmVWOTR3ZAXo5aWRaSXFpSkF4ZAmdsN2REZAlNrMGNqcWltT1FGNUM0LXhzT0hIVEFZAMmcZD"; // Hardcoded for testing
       const domainUrl = "https://graph.instagram.com/";
       const fields = "fields=media_url,caption";
 

@@ -48,6 +48,9 @@
 
 
 /* App.css */
+/* App.css */
+
+/* Apply a flexbox layout to the body to ensure full-height layout */
 body {
   display: flex;
   flex-direction: column;
@@ -55,17 +58,70 @@ body {
   margin: 0;
 }
 
+/* Make the .App container take up the full available height */
 .App {
   display: flex;
   flex-direction: column;
   flex: 1;
 }
 
+/* Make the main content area expand to take up available space */
 main {
   flex: 1;
 }
 
+/* Ensure the footer stays at the bottom and doesn't shrink */
 footer {
   flex-shrink: 0;
+  background-color: #343a40; /* Dark background for the footer */
+  color: #ffffff; /* White text color for the footer */
+  padding: 1rem;
+  text-align: center;
 }
+
+#root {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
 
