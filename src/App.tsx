@@ -1,4 +1,3 @@
-import React from "react";
 import { Routes, Route } from "react-router-dom";
 import InstagramFeed from "./components/InstagramFeed";
 import InstagramNewFeed from "./components/InstagramNewFeed";
