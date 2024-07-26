@@ -57,10 +57,6 @@ const mockPosts: InstagramMedia[] = [
   },
 ];
 
-// Replace this with your actual Instagram access token for testing
-const ACCESS_TOKEN =
-  "IGQWROMVQ3UkdDOHRYTTQyeWVPRkpjVWxIM1Q4OGFSUF9qYzVlUEx4MWNjZA0NzbGwxa3ZASUEVlN0IybmJnWFlQVk96bi13bmVWOTR3ZAXo5aWRaSXFpSkF4ZAmdsN2REZAlNrMGNqcWltT1FGNUM0LXhzT0hIVEFZAMmcZD";
-
 const InstagramFeed: React.FC = () => {
   const [media, setMedia] = useState<InstagramMedia[]>(mockPosts);
   const navigate = useNavigate();
@@ -69,14 +65,16 @@ const InstagramFeed: React.FC = () => {
 
   useEffect(() => {
     const fetchInstagramData = async () => {
-      if (!ACCESS_TOKEN) {
+      const accessToken = import.meta.env.VITE_INSTAGRAM_ACCESS_TOKEN;
+
+      if (!accessToken) {
         console.warn("Access token is missing. Using mock data.");
         setMedia(mockPosts);
         return;
       }
 
       try {
-        const requestUrl = `${domainUrl}${fields}&access_token=${ACCESS_TOKEN}`;
+        const requestUrl = `${domainUrl}${fields}&access_token=${accessToken}`;
         const response = await fetch(requestUrl);
 
         if (!response.ok) {
